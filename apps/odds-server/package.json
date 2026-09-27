@@ -1,0 +1,24 @@
+{
+  "name": "@live-betslip/odds-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mock live odds feed (WebSocket) + bet placement and market-ops REST API",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "build": "esbuild src/main.ts --bundle --platform=node --target=node22 --format=esm --external:ws --external:zod --outfile=dist/main.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@live-betslip/protocol": "0.1.0",
+    "ws": "^8.22.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.1",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15"
+  }
+}
