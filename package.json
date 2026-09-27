@@ -18,12 +18,14 @@
     "dev:server": "npm run dev -w @live-betslip/odds-server",
     "dev:web": "npm run dev -w @live-betslip/web",
     "lint": "eslint .",
-    "typecheck": "npm run typecheck --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present && tsc -p e2e",
     "test": "npm run test --workspaces --if-present",
-    "build": "npm run build --workspaces --if-present"
+    "build": "npm run build --workspaces --if-present",
+    "e2e": "playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^24.19.0",
     "concurrently": "^10.0.5",
     "eslint": "^10.11.0",
