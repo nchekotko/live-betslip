@@ -1,0 +1,36 @@
+{
+  "name": "live-betslip",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Live bet slip + market operations console over a mock WebSocket odds feed",
+  "license": "MIT",
+  "author": "Nikolay Chekotko",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,green \"npm run dev -w @live-betslip/odds-server\" \"npm run dev -w @live-betslip/web\"",
+    "dev:server": "npm run dev -w @live-betslip/odds-server",
+    "dev:web": "npm run dev -w @live-betslip/web",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.0",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.70.1",
+    "vitest": "^5.0.2"
+  }
+}
